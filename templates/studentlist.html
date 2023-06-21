@@ -1,0 +1,10 @@
+{%extends "base.html" %}
+{%block content%}
+<title>{%block title%}Students list{%endblock%}</title>
+   <h1>Students list</h1>  <br>
+   {% for student in sl %}
+   <a href="{{url_for("name", student_id=student.id)}}">{{student.id}} - {{student.surname}} {{student.name[0]}}. {{student.patronymic[0]}}.</a> <br>
+   
+   {% endfor %}
+
+{%endblock%}

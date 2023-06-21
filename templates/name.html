@@ -1,0 +1,9 @@
+{%extends "base.html" %}
+{%block content%} 
+<title>{%block title%}Names{%endblock%}</title>
+    <br>
+    <h2>Student info</h2>
+      {{student.surname}} {{student.name}} {{student.patronymic}} <br>
+      Student located at group: {{student.group}}
+    
+{%endblock%}

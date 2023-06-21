@@ -1,0 +1,48 @@
+{%extends "base.html" %}
+{%block content%}
+<title>{%block title%}Registration{%endblock%}</title>
+<div class="row">
+    <div class="col-sm-3"></div>
+
+    <div class="col-sm-6">
+    <br>
+    <center><h1 style="color:fuchsia" >Registration</h1>
+    <p>Add your name and use all the features of this site!</p>
+    <img src="{{url_for('static', filename='/welcome.gif')}}" alt="Logo" width="250" height="150" class="d-inline-block align-text-top">
+    <h3 style="color: fuchsia">Enter your full name:</h3>
+    <form action="{{url_for('file')}}" method="post">
+        <p><input placeholder='Name' type="text" name="USERNAME" value="" required></p>
+        <p><input placeholder='Surname' type="text" name="SURNAME" value="" required></p>
+        <p><input placeholder='Patronymic' type="text" name="PATRONYMIC" value="" required></p>
+        <p><input placeholder='Group' type="text" name="GROUP" value="" required></p>
+        <button type="submit" class="btn btn-primary">Add me!</button>
+    </form></center>
+    </div>
+</div>
+
+<br>
+
+<h3 style='color:green; background-color: #EEEEEE'>{{message}}</h3>
+<center><table border="4" width="350px">
+    <h3 style="color: darkred">The list of students</h3>
+    <thead>
+        <tr>
+            <th>№</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Patronymic</th>
+        </tr>
+    </thead>
+    <tbody align="center"> 
+        {% for student in sl %}  
+        <tr>
+             <td> <b>{{student.id}}</b></td>
+             <td> {{student.name}} </td> 
+             <td> {{student.surname}} </td> 
+             <td> {{student.patronymic}} </td>  
+        </tr> 
+        {% endfor %} 
+    </tbody>
+</table> </center>
+
+{%endblock%}
